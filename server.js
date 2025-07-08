@@ -6,8 +6,10 @@ const cors = require('cors');
 const app = express();
 
 // Middleware
-app.use(cors());
-app.use(express.json());
+app.use(cors({
+  origin: 'https://your-frontend-name.vercel.app',
+  credentials: true
+}));app.use(express.json());
 
 // Health check
 app.get('/', (req, res) => {
